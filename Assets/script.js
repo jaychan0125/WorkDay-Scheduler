@@ -1,13 +1,17 @@
-var saveBtn = $('.saveBtn')  //will return an array/nodelist
-var userSchedule = $('.description') //will return an array/nodelist
-console.log(saveBtn)
-console.log(saveBtn.parent('div').attr('id'))
-console.log(userSchedule)
-console.log(userSchedule.parent('div').attr('id'))
+var saveBtn = $('.saveBtn');  //will return an array/nodelist
+var userSchedule = $('.description'); //will return an array/nodelist
+console.log(saveBtn);
+console.log(saveBtn.parent('div').attr('id'));
+console.log(userSchedule);
+console.log(userSchedule.parent('div').attr('id'));
 
-saveBtn.on('click',function() {
-  console.log(this.parent('div').attr('id'))
+currentBtn = $(this).parent('div').attr('id')
+
+saveBtn.on('click', function() {
+  console.log(currentBtn);
 })
+
+
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
