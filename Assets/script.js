@@ -1,18 +1,3 @@
-var saveBtn = $('.saveBtn');  //will return an array/nodelist
-var userSchedule = $('.description'); //will return an array/nodelist
-console.log(saveBtn);
-console.log(saveBtn.parent('div').attr('id'));
-console.log(userSchedule);
-console.log(userSchedule.parent('div').attr('id'));
-
-currentBtn = $(this).parent('div').attr('id')
-
-saveBtn.on('click', function() {
-  console.log(currentBtn);
-})
-
-
-
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -24,10 +9,38 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
+  var saveBtn = $('.saveBtn');  //will return an array/nodelist
+  var userSchedule = $('.description'); //will return an array/nodelist
+  // console.log(saveBtn);
+  // console.log(saveBtn.parent('div').attr('id'));
+  // console.log(userSchedule.val());
+  // console.log(userSchedule.parent('div').attr('id'));
 
-// saveBtn.on('click',function() {
-//   console.log(this.parent('div').attr('id'))
-// })
+
+  currentBtn = $(this).parent('div').attr('id');
+
+  saveBtn.click(function () {
+    console.log($(this).parent('div').attr('id')); //the hour's savebtn
+    console.log($(this).prev());
+    
+    console.log($(this).parent('div').children('textarea').val());  //it's associated userSchedule value
+
+    localStorage.setItem('schedule', $(this).parent('div').children('textarea').val());
+
+    var userSched = localStorage.getItem('schedule');  
+    console.log(userSched);
+
+    $(this).parent('div').children('textarea').val(userSched); 
+
+    
+
+
+
+
+
+
+  })
+
 
 
 
