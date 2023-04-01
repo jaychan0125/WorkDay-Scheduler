@@ -27,52 +27,46 @@ $(function () {
   var liveDate = $('#liveDate');
   var currentHr = dayjs().hour();
   var timeBlock = $('.time-block');
-
-
   var saveBtn = $('.saveBtn');  //will return an object
   // var userText = $('.description'); //will return an object
-
   // console.log(saveBtn[1]);
-
   // console.log(saveBtn.parent('div').attr('id'));
   // // console.log(userText.val());
   // console.log(userText.parent('div').attr('id'));
-
-
   // currentBtn = $(this).parent('div').attr('id');
 
-
-
   saveBtn.click(function () {
-    event.preventDefault();
     console.log(this);
-    console.log($(this).parent('div').attr('id')); //the hour's savebtn
-    //console.log($(this).prev()); //also selects the textarea
+    var timeSlot = $(this).parent().attr('id');
+    var notes = $(this).siblings('.description').val();   //grabs user notes
+    console.log(timeSlot);
+    console.log(notes);
 
-    //console.log($(this).parent('div').children('textarea').val());  //it's associated userText value
-    localStorage.setItem(`schedule${$(this).parent('div').attr('id')}`, $(this).parent('div').children('textarea').val());
+    //set localStorage 
+    localStorage.setItem(timeSlot, notes);
 
-    var userSched = localStorage.getItem(`schedule${$(this).parent('div').attr('id')}`);
-    //console.log(userSched);
+    // ORIGINALLY I HAD THIS:  GOT TAUGHT TO MAKE IT NEATER^
+    // console.log($(this).parent('div').attr('id')); //the hour's savebtn
+    // //console.log($(this).prev()); //also selects the textarea
+    // //console.log($(this).parent('div').children('textarea').val());  //it's associated userText value
+    // localStorage.setItem(`schedule${$(this).parent('div').attr('id')}`, $(this).parent('div').children('textarea').val());
 
-
-
+    // var userSched = localStorage.getItem(`schedule${$(this).parent('div').attr('id')}`);
+    // //console.log(userSched);
     // $(this).prev().text(userSched);
-    renderTxt();
-    return userSched;
-
   })
 
-  function renderTxt() {
-    $(this).prev().text(userSched);
-    console.log(this);
-  }
-
-
-
-
-
-
+  //(ancestor descendant) selector
+  $('#9 .description').val(localStorage.getItem('9'));
+  $('#10 .description').val(localStorage.getItem('10'));
+  $('#11 .description').val(localStorage.getItem('11'));
+  $('#12 .description').val(localStorage.getItem('12'));
+  $('#13 .description').val(localStorage.getItem('13'));
+  $('#14 .description').val(localStorage.getItem('14'));
+  $('#15 .description').val(localStorage.getItem('15'));
+  $('#16 .description').val(localStorage.getItem('16'));
+  $('#17 .description').val(localStorage.getItem('17'));
+  $('#18 .description').val(localStorage.getItem('18'));
 
   //kind of want to create an interval so it refreshes every 10minutes so even if im on the page but aren't actively on it, it still reloads
   //600000 milliseconds = 10min
@@ -83,6 +77,7 @@ $(function () {
   //console.log(currentHr)
   //currentHr = 13;  //reset to test functionality
   //console.log(`test time set to: ${currentHr}`);
+  //
   //dring the hours of 9-5
   // if (currentHr > 8 && currentHr < 18) {  
   for (let i = 0; i < timeBlock.length; i++) {
@@ -108,7 +103,5 @@ $(function () {
 
   //display date on page:
   liveDate.text(date);
-
-
 
 });
