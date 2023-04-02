@@ -20,7 +20,7 @@ I feel like overall this one was pretty straightforward; and given access to lib
 
 ## Deployment
 
-Link to my mini quiz: 
+Link to my scheduler: 
 
 **https://jaychan0125.github.io/WorkDay-Scheduler/**
 
