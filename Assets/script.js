@@ -7,6 +7,7 @@ $(function () {
   var currentHr = dayjs().hour();
   var timeBlock = $('.time-block');
   var saveBtn = $('.saveBtn');  //will return an object
+  var clearBtn = $('#clear');
 
   saveBtn.click(function () {
     console.log(this);
@@ -17,53 +18,43 @@ $(function () {
 
     //set localStorage 
     localStorage.setItem(timeSlot, notes);
-
-    // ORIGINALLY I HAD THIS:  GOT TAUGHT TO MAKE IT NEATER^
-    // console.log($(this).parent('div').attr('id')); //the hour's savebtn
-    // //console.log($(this).prev()); //also selects the textarea
-    // //console.log($(this).parent('div').children('textarea').val());  //it's associated userText value
-    // localStorage.setItem(`schedule${$(this).parent('div').attr('id')}`, $(this).parent('div').children('textarea').val());
-
-    // var userSched = localStorage.getItem(`schedule${$(this).parent('div').attr('id')}`);
-    // //console.log(userSched);
-    // $(this).prev().text(userSched);
   })
 
   //(ancestor descendant)-selector  //items stored in localStorage are accessible ANYWHERE!
-  //getItems from local storage, and display them in their associated sections
+  //display localStorage items in their associated sections
   for (let i = 0; i < timeBlock.length; i++) {
-  $(`#${timeBlock.eq(i).attr('id')} .description`).val(localStorage.getItem(`${timeBlock.eq(i).attr('id')}`));
-  } 
+    $(`#${timeBlock.eq(i).attr('id')} .description`).val(localStorage.getItem(`${timeBlock.eq(i).attr('id')}`));
+  }
 
-  //kind of want to create an interval so it refreshes every 10minutes so even if im on the page but aren't actively on it, it still reloads
-  //600000 milliseconds = 10min
-  //  function newHr() {
-  //   setInterval()
-  //  }
-  //
-  //
+  //when clicked clear localStorage, and empties all the textareas
+  clearBtn.click(function () {
+    localStorage.clear();
+    for (let i = 0; i < timeBlock.length; i++) {
+      $(`#${timeBlock.eq(i).attr('id')} .description`).val('');
+    }
+  })
+
   //console.log(timeBlock)
   //console.log(currentHr)
   //currentHr = 13;  //reset to test functionality
   //console.log(`test time set to: ${currentHr}`);
-  
 
   //during the hours of 9-5
   // if (currentHr > 8 && currentHr < 18) {  
   for (let i = 0; i < timeBlock.length; i++) {
     //console.log(timeBlock.eq(i).attr('id'))
 
-    //when the currentHr matches the time-block hour, set class=present
+    //if the currentHr matches the time-block hour, set class=present
     if (currentHr == timeBlock.eq(i).attr('id')) {
       $(`#${timeBlock.eq(i).attr('id')}`).addClass('present');
       $(`#${timeBlock.eq(i).attr('id')}`).removeClass('past future');
     }
-    //when the currentHr is greater than time-block hour, set class=past
+    //if the currentHr is greater than time-block hour, set class=past
     else if (currentHr > timeBlock.eq(i).attr('id')) {
       $(`#${timeBlock.eq(i).attr('id')}`).addClass('past');
       $(`#${timeBlock.eq(i).attr('id')}`).removeClass('present future');
     }
-    //when the currentHr is less than the time-blcok hour, set class=future
+    //if the currentHr is less than the time-blcok hour, set class=future
     else if (currentHr < timeBlock.eq(i).attr('id')) {
       $(`#${timeBlock.eq(i).attr('id')}`).addClass('future');
       $(`#${timeBlock.eq(i).attr('id')}`).removeClass('past present');
@@ -83,7 +74,7 @@ $(function () {
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
-  // 
+  //
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
@@ -95,9 +86,9 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-  // 
+  //
 
-  //askBSC: Drew
+  //reference: askBSC Drew
   //  // //(ancestor descendant)-selector
   // $('#9 .description').val(localStorage.getItem('9'));
   // $('#10 .description').val(localStorage.getItem('10'));
