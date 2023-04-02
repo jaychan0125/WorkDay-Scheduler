@@ -1,99 +1,97 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# Quick Quiz!
 
-## Your Task
+## 04 Web APIs: Code Quiz
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+For this challenge, we're tasked with making a quiz from scratch; this time using JavaScript to add functionality! I had to review so many notes, look up so many things, take mental health breaks, and break it down to tiny pieces for this one! I literally studied Objects for a day, and event objects are still confusing to me(especially when using them with an eventListner and function). Some of the most important concepts making my code work was definitely scope and code placement. I also got some best practices reiterated to me such as: placing variables on top, eventListeners at the bottom, and to try not to complicate things too much. It was definitely a challenge stringing my thought process of: When this happens, I want this to happen; and then adding the functionality of HOW to make it happen. I am learning a lot for sure! 
 
-You'll need to use the [Day.js](https://day.js.org/en/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Day.js in the browser.
+One of the biggest struggles for me for this challenge was adding functionality to all the choice buttons, as well as getting a different option to display on all of them in a more concise manner. I think this stumped me for a few days!
+Originally I tried adding an eventListener to my optionBtns, which didn’t work as it was an array. So I tried to loop though the array to add an eventListener to each button in it! But that ended up being messy, so I got some guidance to add functionality that targets the parent container instead and then narrow it down so that it would only work if I clicked on specific things (buttons) within the target container (Compagnoni,2023)! 
+The other part was figuring out how to condense my code of adding a new question/option to every new page of my quiz. Originally my loop made it so that it just iterated through the whole thing and ended up at the last question. I was working with 2 live variables in this one, so I was a bit confused. I got the majority of the equation down, I was just confused on how to change the questionNum variable per click, and with help realised that if I declared the variable in the global scope, it could be used everywhere and functions below the declaration would still affect the value how I wanted it (Compagnoni,2023)! 
 
-## User Story
+I’m now wondering how many webpages actually load, because I always thought normally when I clicked on something it would just bring me to like a new webpage, rather than dynamically changing it after an event? 
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
+
+## Table of Contents
+
+- [Deployment](#deployment)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Citations](#citations)
+- [License](#license)
+
+## Deployment
+
+Link to my mini quiz: 
+
+**https://jaychan0125.github.io/Quick-Quiz/**
+
+## Requirements
+
+Here are the provided requirements:
+### User Story
+```
+AS A coding boot camp student
+I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
+SO THAT I can gauge my progress compared to my peers
 ```
 
-## Acceptance Criteria
-
-```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
+### Acceptance Criteria
+```
+GIVEN I am taking a code quiz
+WHEN I click the start button
+THEN a timer starts and I am presented with a question
+WHEN I answer a question
+THEN I am presented with another question
+WHEN I answer a question incorrectly
+THEN time is subtracted from the clock
+WHEN all questions are answered or the timer reaches 0
+THEN the game is over
+WHEN the game is over
+THEN I can save my initials and my score
 ```
 
-The following animation demonstrates the application functionality:
+## Usage
 
-<!-- @TODO: create ticket to review/update image) -->
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
+![Start Page](./Assets/quiz-start.png) 
 
-## Grading Requirements
+When first entering the quiz, you'll be given instructions to answer the quiz questions! Start by hitting the 'Start!' button!
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
 
-This Challenge is graded based on the following criteria:
+![Quiz Questions](./Assets/quiz-q.png) 
 
-### Technical Acceptance Criteria: 40%
+After you start, you'll be given a question with 4 options for answers! A timer will also start giving you 60seconds to complete the quiz. Every answer you click will bring you to the next question! 
 
-* Satisfies all of the above acceptance criteria plus the following:
 
-  * Uses a date utility library to work with date and time
+![Oops!](./Assets/quiz-wrongAns.png) 
 
-### Deployment: 32%
+Be careful! If you answer wrong, you'll lose 5seconds off your time! If the time runs out, the game is over!   
 
-* Application deployed at live URL
 
-* Application loads with no errors
+![Finished](./Assets/quiz-done.png) 
 
-* Application GitHub URL submitted
+Once done, you'll be prompted to put your initials in to save your score! Hit the 'Submit' button to do so! Your score is the amount of time you have left. You can view your previous score, but pressing the 'Previous Score' button.
 
-* GitHub repo contains application code
 
-### Application Quality: 15%
+![Previous Score](./Assets/quiz-prevScore.png) 
 
-* Application user experience is intuitive and easy to navigate
+I'm sure you can beat my score! You'll also have a button return to the start page of the game.
 
-* Application user interface style is clean and polished
 
-* Application resembles the mock-up functionality provided in the Challenge instructions
+## Citations
 
-### Repository Quality: 13%
+Maqsood, A., Moatar, T., Krishna, &amp; Zhang, S. (2023). Web APIs Day 1-3. Lecture. 
 
-* Repository has a unique name
+## License
 
-* Repository follows best practices for file structure and naming conventions
+Licensed under the MIT license.
 
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+---
 
-* Repository contains multiple descriptive commit messages
 
-* Repository contains quality README file with description, screenshot, and link to deployed application
 
-## Review
 
-You are required to submit the following for review:
 
-* The URL of the deployed application
 
-* The URL of the GitHub repository, with a unique name and a README describing the project
 
-- - -
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+
