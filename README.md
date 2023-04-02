@@ -56,11 +56,13 @@ THEN the saved events persist
 ## Usage
 
 ![WorkDay Scheduler](./Assets/workdayscheduler.png) 
+
 This workday scheduler helps you plan out your 9-5 work day! 
 The blocks are colour coded to help: 
 - gray: time past.
 - green: current time.
 - yellow: upcoming time.
+
 As each hour passes, the colourblocks will also change! 
 To enter your schedule, type your tasks into the text areas and hit the save button on the end. Don't worry! If you leave the page accidentally, your schedule will still be saved! 
 
