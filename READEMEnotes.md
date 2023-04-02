@@ -1,19 +1,17 @@
 Problem: create a task planner for the work day
 
 - display date on top
-- ^dynamically changes
-
+    - ^dynamically changes using Day.js
 
 - set hours: 9am - 5pm (workday hours)
     - past hours gray out
-    - current hour is red/yellow
-    - upcoming hours are green
+    - current hour is green
+    - upcoming hours are yellow
 - ^dynamically change with time 
-
-
 
 - saveBtn allows user to save their input
     - save into local storage -> when refresh, will stay
+    - continue to display
 
 
 
