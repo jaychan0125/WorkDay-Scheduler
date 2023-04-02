@@ -28,14 +28,14 @@ Link to my mini quiz:
 ## Requirements
 
 Here are the provided requirements:
-## User Story
+### User Story
 ```md
 AS AN employee with a busy schedule
 I WANT to add important events to a daily planner
 SO THAT I can manage my time effectively
 ```
 
-## Acceptance Criteria
+### Acceptance Criteria
 ```md
 GIVEN I am using a daily planner to create a schedule
 WHEN I open the planner
