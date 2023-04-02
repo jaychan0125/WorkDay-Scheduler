@@ -64,6 +64,10 @@ The blocks are colour coded to help:
 As each hour passes, the colourblocks will also change! 
 To enter your schedule, type your tasks into the text areas and hit the save button on the end. Don't worry! If you leave the page accidentally, your schedule will still be saved! 
 
+The page will refresh itself every 10minutes so the colours stay up to time with the hours, so be sure to save your changes! 
+
+If you'd like to clear your schedule, you can also click the 'Clear Schedule' button!
+
 
 ## Citations
 
